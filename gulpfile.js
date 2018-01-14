@@ -3,11 +3,11 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
-
 //sass
 gulp.task('sass', function() {
   gulp.src(['css/*.scss'])
     .pipe(sass({outputStyle: 'compressed'}))
+    .on('error', swallowError)
     .pipe(rename({
       suffix: '.min'
     }))
@@ -15,6 +15,7 @@ gulp.task('sass', function() {
   
   gulp.src(['css/*.scss'])
     .pipe(sass({outputStyle: 'expanded'}))
+    .on('error', swallowError)
     .pipe(gulp.dest('css/'));
 });
 
@@ -22,6 +23,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
   gulp.src(['js/*.js'])
   .pipe(uglify())
+  .on('error', swallowError)
   .pipe(rename({
     suffix: '.min'
   }))
@@ -32,6 +34,15 @@ gulp.task('watch', function() {
   gulp.watch('js/*.js', ['js']);
   gulp.watch('css/*.scss', ['sass']);
 });
+
+// no break on error
+function swallowError (error) {
+
+  // If you want details of the error in the console
+  console.log(error.toString());
+
+  this.emit('end');
+}
 
 
 //default

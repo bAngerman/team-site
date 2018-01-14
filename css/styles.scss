@@ -1,1 +1,156 @@
 /*! styles.scss */
+
+// fonts
+$font-heading: 'Oswald', sans-serif;
+$font-paragraph: 'Josefin Slab', serif;
+$font-callout: 'Rock Salt', cursive;
+
+// colors
+$l-blue: #C9E3DA;
+$orangish: #E77A65;
+$blue: #292E70;
+$d-orange: #E54B3F;
+$off-white: #FDF2DF;
+$l-white: #F2E6D6;
+$overlay: rgba(41, 35, 112, 0.6);
+$slate: #2E3138;
+$cyan: #2DB5A9;
+$l-gray: #B8B8B8;
+$yellow: #E3C998;
+
+// breakpoints 
+$bp-1: 576px;
+$bp-2: 768px;
+$bp-3: 992px;
+$bp-4: 1200px;
+
+// animations
+$fast: 0.15s;
+$med: 0.3s;
+$slow: 0.5s;
+
+@mixin transition ($timing) {
+  -webkit-transition: all $timing ease-in-out;
+  -moz-transition:    all $timing ease-in-out;
+  -o-transition:      all $timing ease-in-out;
+  transition:         all $timing ease-in-out;
+}
+
+// user styles
+
+// begin header styles
+header {
+  background-color: $l-blue;
+  .header {
+    flex-flow: row wrap;
+    .logo {
+      height: 200px * 0.865;
+      width: 200px;
+      background-image: url('../img/thirdwheel-design-logo-no-outline_1024.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 2.5rem 0;
+    }
+    nav {
+      flex-basis: 100%;
+      margin: 1rem 0 3.5rem 0;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li {
+          float: left;
+          margin-right: 0.5rem;
+          &:last-child {
+            margin-right: 0;
+          }
+          a {
+            text-decoration: none;
+            font-family: $font-heading;
+            color: $blue;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 0.5rem;
+            @include transition($fast);
+          }
+          a:hover {
+            color: $cyan;
+          }
+          @media only screen and (min-width: $bp-1) {
+            a {
+              font-size: 1.4rem;
+            }
+          }
+        }
+        .active {
+          a {
+            border-bottom: 3px solid $orangish;
+          }
+        }
+      }
+    }
+  }
+}
+// end header styles
+
+// begin banner styles
+.banner {
+  width: 100%;
+  .carousel {
+    *[class*="item-"] {
+      height: 350px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .item-1 {
+      background-image: linear-gradient($overlay, $overlay), url("https://placehold.it/900x300");
+    }
+    .item-2 {
+      background-image: linear-gradient($overlay, $overlay), url("https://placehold.it/900x300");
+    }
+    .item-3 {
+      background-image: linear-gradient($overlay, $overlay), url("https://placehold.it/900x300");
+    }
+    .slick-prev, .slick-next {
+      z-index: 999;
+      width: 40px;
+      height: 40px;
+    }
+    .slick-prev {
+      left: 15px;
+    }
+    .slick-next {
+      right: 15px;
+    }
+    .slick-prev:before, .slick-next:before{
+      color: $cyan !important;
+    }
+  }
+}
+// end banner styles
+
+
+
+// helpers
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important; 
+	width: 1px !important; 
+	overflow: hidden;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+img {
+  max-height: 100%;
+  width: auto;
+}
