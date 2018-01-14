@@ -10,6 +10,7 @@ $l-blue: #C9E3DA;
 $orangish: #E77A65;
 $blue: #292E70;
 $d-orange: #E54B3F;
+$l-orange: #E67A65;
 $off-white: #FDF2DF;
 $l-white: #F2E6D6;
 $overlay: rgba(41, 35, 112, 0.6);
@@ -38,7 +39,12 @@ $slow: 0.5s;
 
 // user styles
 
-// begin header styles
+body {
+  position: relative;
+  height: 100%;
+}
+
+// begin header
 header {
   background-color: $l-blue;
   .header {
@@ -92,12 +98,14 @@ header {
     }
   }
 }
-// end header styles
+// end header
 
-// begin banner styles
+// begin banner
 .banner {
   width: 100%;
   .carousel {
+    margin-bottom: 0px;
+
     *[class*="item-"] {
       height: 350px;
       background-size: cover;
@@ -127,10 +135,115 @@ header {
     .slick-prev:before, .slick-next:before{
       color: $cyan !important;
     }
+    .slick-dots {
+      bottom: 1rem;
+      li.slick-active button:before {
+        //color: $cyan;
+      }
+      li button:before {
+        //color: $cyan;
+      }
+    }
   }
 }
-// end banner styles
+// end banner
 
+// begin people
+
+.people {
+  background-color: $yellow;
+
+  .person {
+    padding: 3rem 2rem;
+    .headshot {
+      margin: 0 auto;
+      width: 150px;
+      height: 150px;
+      border: 5px solid $d-orange;
+      background-image: url("https://placehold.it/150x150");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .info {
+      padding-top: 1rem;
+      text-align: center;
+      p {
+        margin: 0;
+      }
+      .name {
+        font-family: $font-callout;
+      }
+      .title {
+        font-family: $font-heading;
+      }
+    }
+  }
+}
+// end people
+
+//start project
+*[class*="project-"] {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  h2 {
+    font-family: $font-heading;
+  }
+  *[class*="col-"] {
+    padding-bottom: 30px;
+  }
+  *[class*="col-"]:last-child {
+    padding-bottom: 0;
+  }
+  *[class*="cap-"] {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+.project-1 {
+  background-color: $l-orange;
+  color: $blue;
+  .cap-1, .cap-2, .cap-3, .cap-4 {
+    background-image: url("https://placehold.it/900x900")
+  }
+}
+.project-2 {
+  background-color: $blue;
+  color: $cyan;
+  margin-bottom: 141.2px;
+  .cap-1, .cap-2, .cap-3, .cap-4 {
+    background-image: url("https://placehold.it/900x900")
+  }
+}
+//end project
+
+//begin footer
+footer {
+  background-color: $l-blue;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: $blue;
+  .sm-logo {
+    height: 80px * 0.865;
+    width: 80px;
+    background-image: url('../img/thirdwheel-design-logo-no-outline_1024.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 1.4rem auto;
+  }
+  p {
+    margin: 0;
+    padding: 0rem 0rem 0.5rem 0rem;
+    font-weight: bold;
+  }
+}
+//end footer
 
 
 // helpers
