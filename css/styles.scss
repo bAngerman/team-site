@@ -11,6 +11,7 @@ $orangish: #E77A65;
 $blue: #292E70;
 $d-orange: #E54B3F;
 $l-orange: #E67A65;
+$orangerish: #E44b3e;
 $off-white: #FDF2DF;
 $l-white: #F2E6D6;
 $overlay: rgba(41, 35, 112, 0.6);
@@ -157,12 +158,19 @@ header {
     padding: 3rem 2rem;
     .headshot {
       margin: 0 auto;
-      width: 150px;
-      height: 150px;
-      border: 5px solid $d-orange;
-      background-image: url("https://placehold.it/150x150");
+      width: 190px;
+      height: 190px;
       background-position: center;
       background-repeat: no-repeat;
+    }
+    .brendan {
+      background-image: url("../img/asset4@72x.png");
+    }
+    .corinna {
+      background-image: url("../img/asset6@72x.png");
+    }
+    .jessica {
+      background-image: url("../img/asset5@72x.png");
     }
     .info {
       padding-top: 1rem;
@@ -205,7 +213,7 @@ header {
   }
 }
 .project-1 {
-  background-color: $l-orange;
+  background-color: $orangerish;
   color: $blue;
   .cap-1, .cap-2, .cap-3, .cap-4 {
     background-image: url("https://placehold.it/900x900")
